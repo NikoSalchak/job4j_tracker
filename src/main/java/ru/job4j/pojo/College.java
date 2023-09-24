@@ -6,7 +6,7 @@ public class College {
         student.setName("Niko Salchak");
         student.setGroup(132);
         student.setAdmissionDate("01.08.2023");
-        System.out.println("ФИО студента: " + student.getName() + "\n" + "Группа студента: "
-                + student.getGroup() + "\n" + "Дата постпления: " + student.getAdmissionDate());
+        System.out.println("ФИО студента: " + student.getName() + System.lineSeparator() + "Группа студента: "
+                + student.getGroup() + System.lineSeparator() + "Дата постпления: " + student.getAdmissionDate());
     }
 }
