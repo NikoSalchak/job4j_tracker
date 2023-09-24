@@ -6,7 +6,7 @@ public class Item {
     private int id;
     private String name;
 
-    private LocalDateTime created;
+    private LocalDateTime created = LocalDateTime.now();
 
     public Item() {
     }
@@ -39,14 +39,5 @@ public class Item {
 
     public LocalDateTime getCreated() {
         return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public static void main(String[] args) {
-        LocalDateTime created = LocalDateTime.now();
-        System.out.println("текущая дата и время: " + created);
     }
 }
