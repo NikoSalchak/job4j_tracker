@@ -41,6 +41,10 @@ public class Item {
         return created;
     }
 
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
     public static void main(String[] args) {
         LocalDateTime created = LocalDateTime.now();
         System.out.println("текущая дата и время: " + created);
