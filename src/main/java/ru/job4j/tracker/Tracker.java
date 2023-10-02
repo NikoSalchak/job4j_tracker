@@ -22,22 +22,20 @@ public class Tracker {
                 size++;
             }
         }
-        rsl = Arrays.copyOf(rsl, size);
-        return rsl;
+        return Arrays.copyOf(rsl, size);
     }
 
     public Item[] findByName(String key) {
-        int s = 0;
+        int counter = 0;
         Item[] rsl = new Item[size];
         for (int i = 0; i < size; i++) {
             Item temp = items[i];
             if (temp.getName().equals(key)) {
-                rsl[s] = items[i];
-                s++;
+                rsl[counter] = items[i];
+                counter++;
             }
         }
-        rsl = Arrays.copyOf(rsl, s);
-        return rsl;
+        return Arrays.copyOf(rsl, counter);
     }
 
     public Item findById(int id) {
