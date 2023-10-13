@@ -69,4 +69,109 @@ class StartUITest {
                         + "0. Shut down the program" + System.lineSeparator()
                         + "The program shut down" + System.lineSeparator());
     }
+
+    @Test
+    void whenReplaceItemTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test"));
+        String replaceName = "New Test Name";
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+        );
+        UserAction[] actions = new UserAction[] {
+          new ReplaceAction(out),
+          new ExitAction(out),
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                + "0. Change the item" + ln
+                + "1. Shut down the program" + ln
+                +  "==== Change the item ===" + ln
+                + "The item changed successfully." + ln
+                + "Menu:" + ln
+                + "0. Change the item" + ln
+                + "1. Shut down the program" + ln
+                + "The program shut down" + ln
+        );
+    }
+
+    @Test
+    void whenFindAllActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test"));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = new UserAction[] {
+                new FindAllAction(out),
+                new ExitAction(out),
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Show All the items" + ln
+                        + "1. Shut down the program" + ln
+                        +  "==== Show all the items ===" + ln
+                        + one + ln
+                        + "Menu:" + ln
+                        + "0. Show All the items" + ln
+                        + "1. Shut down the program" + ln
+                        + "The program shut down" + ln
+        );
+    }
+
+    @Test
+    void findByNameActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getName()), "1"}
+        );
+        UserAction[] actions = new UserAction[] {
+                new FindByNameAction(out),
+                new ExitAction(out),
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Show item by name" + ln
+                        + "1. Shut down the program" + ln
+                        + "Menu:" + ln
+                        + "0. Show item by name" + ln
+                        + "1. Shut down the program" + ln
+                        + "The program shut down" + ln
+        );
+    }
+
+    @Test
+    void findByIdActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), "1"}
+        );
+        UserAction[] actions = new UserAction[] {
+                new FindByIdAction(out),
+                new ExitAction(out),
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Show item by id" + ln
+                        + "1. Shut down the program" + ln
+                        + "Menu:" + ln
+                        + "0. Show item by id" + ln
+                        + "1. Shut down the program" + ln
+                        + "The program shut down" + ln
+        );
+    }
 }
