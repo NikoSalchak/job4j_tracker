@@ -116,7 +116,7 @@ class StartUITest {
                 "Menu:" + ln
                         + "0. Show All the items" + ln
                         + "1. Shut down the program" + ln
-                        +  "==== Show all the items ===" + ln
+                        +  "=== Show all the items ===" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Show All the items" + ln
@@ -143,6 +143,8 @@ class StartUITest {
                 "Menu:" + ln
                         + "0. Show item by name" + ln
                         + "1. Shut down the program" + ln
+                        + "=== Show item by name ===" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Show item by name" + ln
                         + "1. Shut down the program" + ln
@@ -168,6 +170,8 @@ class StartUITest {
                 "Menu:" + ln
                         + "0. Show item by id" + ln
                         + "1. Shut down the program" + ln
+                        + "=== Show item by id ===" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Show item by id" + ln
                         + "1. Shut down the program" + ln

@@ -14,7 +14,7 @@ public class FindAllAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("==== Show all the items ===");
+        out.println("=== Show all the items ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
