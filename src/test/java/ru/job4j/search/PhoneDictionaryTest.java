@@ -22,7 +22,6 @@ class PhoneDictionaryTest {
     public void whenNotFindByName() {
         PhoneDictionary phone = new PhoneDictionary();
         ArrayList<Person> person = phone.find("Petr");
-        ArrayList<Person> empty = new ArrayList<>();
-        assertThat(person).isEqualTo(empty);
+        assertThat(person).isEmpty();
     }
 }
