@@ -9,7 +9,6 @@ public class NotifyAccount {
         for (Account account : accounts) {
             rsl.add(account);
         }
-        System.out.println(rsl);
         return rsl;
     }
 }
