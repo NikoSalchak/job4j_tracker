@@ -29,10 +29,10 @@ class PriorityQueueTest {
     @Test
     public void whenHigherPriorityFirst() {
         PriorityQueue queue = new PriorityQueue();
-        queue.put(new Task("low", 1));
-        queue.put(new Task("urgent", 6));
+        queue.put(new Task("urgent", 1));
+        queue.put(new Task("low", 6));
         queue.put(new Task("middle", 3));
         Task result = queue.take();
-        assertThat(result.getDesc()).isEqualTo("low");
+        assertThat(result.getDesc()).isEqualTo("urgent");
     }
 }
