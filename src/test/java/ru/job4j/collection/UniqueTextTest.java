@@ -21,4 +21,12 @@ class UniqueTextTest {
         String text = "A mouse is eaten by a cat";
         assertThat(uniqueText.isEquals(origin, text)).isFalse();
     }
+
+    @Test
+    public void isSecondEquals() {
+        UniqueText uniqueText = new UniqueText();
+        String origin = "we build houses and stores";
+        String text = "build we stores and houses";
+        assertThat(uniqueText.isEquals(origin, text)).isTrue();
+    }
 }

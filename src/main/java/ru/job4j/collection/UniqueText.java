@@ -11,9 +11,11 @@ public class UniqueText {
         HashSet<String> check = new HashSet<>();
         for (String word : origin) {
             check.add(word);
-            for (String duplicate : text) {
-                rsl = check.contains(duplicate);
-                break;
+        }
+        for (String duplicate : text) {
+            if (!check.contains(duplicate)) {
+             rsl = false;
+             break;
             }
         }
         return rsl;
