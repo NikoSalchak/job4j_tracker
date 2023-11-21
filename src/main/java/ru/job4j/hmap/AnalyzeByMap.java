@@ -68,7 +68,6 @@ public class AnalyzeByMap {
         List<Label> label = new ArrayList<>();
         for (String key : map.keySet()) {
             label.add(new Label(key, (double) map.get(key)));
-            System.out.println(label);
         }
         Collections.sort(label, Comparator.naturalOrder());
         return label.get(label.size() - 1);
