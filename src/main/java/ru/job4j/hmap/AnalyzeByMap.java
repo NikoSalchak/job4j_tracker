@@ -69,7 +69,7 @@ public class AnalyzeByMap {
         for (String key : map.keySet()) {
             label.add(new Label(key, (double) map.get(key)));
         }
-        Collections.sort(label, Comparator.naturalOrder());
+        label.sort(Comparator.naturalOrder());
         return label.get(label.size() - 1);
     }
 }
