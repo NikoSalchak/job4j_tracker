@@ -20,9 +20,9 @@ public class AnalyzeByMap {
         List<Label> label = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-              score += subject.score();
+                score += subject.score();
             }
-            label.add(new Label(pupil.name(),  (double) score / pupil.subjects().size()));
+            label.add(new Label(pupil.name(), (double) score / pupil.subjects().size()));
             score = 0;
         }
         return label;
@@ -44,7 +44,6 @@ public class AnalyzeByMap {
 
     public static Label bestStudent(List<Pupil> pupils) {
         List<Label> label = new ArrayList<>();
-        Label student = null;
         int score = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
@@ -54,15 +53,11 @@ public class AnalyzeByMap {
             score = 0;
         }
         label.sort(Comparator.naturalOrder());
-        for (Label value : label) {
-            student = value;
-        }
-        return student;
+        return label.get(label.size() - 1);
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
         Map<String, Integer> map = new LinkedHashMap<>();
-        Label discipline = null;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
                 map.put(subject.name(),
@@ -73,11 +68,9 @@ public class AnalyzeByMap {
         List<Label> label = new ArrayList<>();
         for (String key : map.keySet()) {
             label.add(new Label(key, (double) map.get(key)));
-            label.sort(Comparator.naturalOrder());
+            System.out.println(label);
         }
-        for (Label value : label) {
-            discipline = value;
-        }
-        return discipline;
+        Collections.sort(label, Comparator.naturalOrder());
+        return label.get(label.size() - 1);
     }
 }
