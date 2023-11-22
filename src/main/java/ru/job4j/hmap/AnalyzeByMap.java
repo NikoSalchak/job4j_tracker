@@ -52,8 +52,13 @@ public class AnalyzeByMap {
             label.add(new Label(pupil.name(), score));
             score = 0;
         }
-        label.sort(Comparator.naturalOrder());
-        return label.get(label.size() - 1);
+        Label max = label.get(0);
+        for (Label student : label) {
+            if (student.score() > max.score()) {
+                max = student;
+            }
+        }
+        return max;
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
@@ -69,7 +74,12 @@ public class AnalyzeByMap {
         for (String key : map.keySet()) {
             label.add(new Label(key, (double) map.get(key)));
         }
-        label.sort(Comparator.naturalOrder());
-        return label.get(label.size() - 1);
+        Label max = label.get(0);
+        for (Label subject : label) {
+            if (subject.score() > max.score()) {
+                max = subject;
+            }
+        }
+        return max;
     }
 }
