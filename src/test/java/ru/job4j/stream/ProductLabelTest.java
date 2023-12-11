@@ -21,7 +21,8 @@ class ProductLabelTest {
                 new Product("coffee", 75, 120, 30),
                 new Product("potato", 45, 90, 15),
                 new Product("cherry", 150, 10, 8),
-                new Product("watermelon", 70, 7, 7)
+                new Product("watermelon", 70, 7, 7),
+                new Product("apple", 30, 45, 90)
         );
         ProductLabel generator = new ProductLabel();
         List<String> strings = generator.generateLabels(products);
