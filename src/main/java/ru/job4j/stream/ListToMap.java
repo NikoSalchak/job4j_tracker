@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 public class ListToMap {
     public static Map<String, Student> convert(List<Student> list) {
         return list.stream().collect(Collectors.toMap(
-                student -> student.getSurname(),
-                student -> new Student(student.getScore(), student.getSurname()),
+                Student::getSurname,
+                student -> student,
                 (student, student2) -> student
         ));
     }
