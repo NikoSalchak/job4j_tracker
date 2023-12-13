@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * класс описывает работу банковской системы
+ * Класс описывает работу банковской системы
  * в системе можно производить следующие действия:
  * 1. Регистрировать пользователя.
  * 2. Удалять пользователя из системы.
@@ -27,7 +27,7 @@ public class BankService {
      * Метод принимает на вход User и записывает его в коллекцию HashMap,
      * если такой пользователь отсутствует.
      *
-     * @param user это пользователь который выступает ключом в HashMap
+     * @param user это пользователь, который выступает ключом в HashMap
      */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
@@ -68,33 +68,31 @@ public class BankService {
      * нахождение текущих счетов
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(s -> s.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
      * метод находит счет пользователя по реквизитам и паспорту путем вызова
      * метода findByPassport и если пользователь не null  проходит по списку его счетов
      *
-     * @param passport  номер паспорта пользователя
+     * @param passportNumber  номер паспорта пользователя
      * @param requisite номер счета пользователя
      * @return счет пользователя
      */
-    public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> accounts = getAccounts(user);
-            for (Account tab : accounts) {
-                if (tab.getRequisite().equals(requisite)) {
-                    return tab;
-                }
-            }
+    public Account findByRequisite(String passportNumber, String requisite) {
+        var passport = findByPassport(passportNumber);
+        if (passport == null) {
+            return null;
         }
-        return null;
+        return users.get(passport)
+                .stream()
+                .filter(s -> s.getRequisite().equals(requisite))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
