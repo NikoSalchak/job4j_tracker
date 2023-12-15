@@ -10,18 +10,18 @@ class PhoneDictionaryTest {
 
     @Test
     public void whenFindByName() {
-        PhoneDictionary phone = new PhoneDictionary();
+        var phone = new PhoneDictionary();
         phone.add(new Person(
                 "Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> person = phone.find("Petr");
+        var person = phone.find("Petr");
         assertThat(person.get(0).getName()).isEqualTo("Petr");
     }
 
     @Test
     public void whenNotFindByName() {
-        PhoneDictionary phone = new PhoneDictionary();
-        ArrayList<Person> person = phone.find("Petr");
+        var phone = new PhoneDictionary();
+        var person = phone.find("Petr");
         assertThat(person).isEmpty();
     }
 }
