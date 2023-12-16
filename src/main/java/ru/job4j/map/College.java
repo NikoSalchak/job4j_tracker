@@ -25,9 +25,8 @@ public class College {
                     .stream()
                     .filter(s -> s.name().equals(name))
                     .findFirst();
-        } else {
-            return Optional.empty();
         }
+        return Optional.empty();
     }
 
     public static void main(String[] args) {
